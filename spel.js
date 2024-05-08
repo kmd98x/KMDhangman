@@ -14,8 +14,9 @@
 
 const woorden = ["hallo"]
 const buttons = document.querySelectorAll("button")
-
-
+let gekozenwoord = woorden[0].split("")
+console.log(gekozenwoord)
+;
 // bron: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
 
 //we selecteren eerst alle buttons, en dan loopen we door elke button en vervolgens doen we iets(de functie) met elke button 
@@ -26,7 +27,7 @@ buttons.forEach(function (button) {
 
     function checkletters(event) {
         event.preventDefault()
-        //je wilt dat als je op een letter klikt,dat de pagina niet refreshed wordt, maar dat je op dezelfde pagina blijft. Bron: https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault
+        //je wilt dat als je op een letter klikt,dat de pagina niet refreshed wordt, maar dat je op dezelfde pagina blijft. Bron: https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault - Bron kleine letters: https://www.shecodes.io/athena/23781-how-to-convert-a-string-to-lowercase-in-javascript#:~:text=To%20convert%20a%20string%20to%20lowercase%2C%20we%20can%20use,toLowerCase()%20method%20in%20JavaScript.&text=let%20myString%20%3D%20%22HeLLo%20WoRLD!,output%3A%20%22hello%20world!%22
 
         const kleinLetter = button.textContent.toLowerCase()
         console.log(kleinLetter)
