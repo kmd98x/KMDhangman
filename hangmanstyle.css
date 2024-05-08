@@ -2,12 +2,13 @@ body {
     background: #16535D;
 }
 
-.logo{
+.logo {
     display: inline;
     padding: 2em;
     z-index: 1;
     position: relative;
 }
+
 .speel {
     background: #ffffff;
     border: none;
@@ -30,17 +31,17 @@ body {
 }
 
 
-.zero-state{
+.zero-state {
     display: flex;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    top:0;
+    top: 0;
     align-items: center;
     flex-direction: column;
-    gap:3em;
+    gap: 3em;
 }
-  
+
 
 
 /* ================================================================================================================================================================================================================================================================== */
@@ -51,7 +52,7 @@ body {
     border-radius: 0.6em;
     position: absolute;
     right: 1em;
-    top:1em;
+    top: 1em;
 }
 
 .spel-regels button {
@@ -92,5 +93,23 @@ body {
 
 /* ================================================================================================================================================================================================================================================================== */
 
+.keyboard {
+    width: 30em;
+}
 
+.keyboard div {
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+    justify-content: center;
+    margin: .25em .25em;
+}
 
+.keyboard button {
+    border-radius: 0.6em;
+    background-color: #336067;
+    border-style: none;
+    color: #FFFFFF;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.275);
+    padding: 1em;
+}
