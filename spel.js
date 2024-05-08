@@ -27,9 +27,16 @@ buttons.forEach(function (button) {
     function checkletters(event) {
         event.preventDefault()
         //je wilt dat als je op een letter klikt,dat de pagina niet refreshed wordt, maar dat je op dezelfde pagina blijft. Bron: https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault
-        console.log(button.textContent)
+
+        const kleinLetter = button.textContent.toLowerCase()
+        console.log(kleinLetter)
     }
 
     button.addEventListener("click", checkletters)
 })
+
+//we gaan nu kleine letters maken, want de woorden/letters in de array zijn kleine letters en de keyboard grote, dus dan krijg je een false uitkomst
+
+
+
 
