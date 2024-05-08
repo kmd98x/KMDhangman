@@ -1,0 +1,82 @@
+body {
+    background: #16535D;
+}
+
+.logo{
+    display: inline;
+    padding: 2em;
+    z-index: 1;
+    position: relative;
+}
+.speel {
+    background: #ffffff;
+    border: none;
+    border-radius: 0.6em;
+    padding: 1em 2em;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.speel img {
+    width: 0.8em;
+}
+
+.zero-state.hidden {
+    display: none;
+}
+
+
+.zero-state{
+    display: flex;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top:0;
+    align-items: center;
+    flex-direction: column;
+    gap:3em;
+}
+  
+
+
+/* ================================================================================================================================================================================================================================================================== */
+
+.spel-regels {
+    border: #FFFFFF solid .1em;
+    max-width: 11em;
+    border-radius: 0.6em;
+    position: absolute;
+    right: 1em;
+    top:1em;
+}
+
+.spel-regels button {
+    background: transparent;
+    padding: 1em 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2em;
+    color: #FFFFFF;
+    border: none;
+    width: 100%;
+}
+
+.spel-regels img {
+    width: 0.8em;
+}
+
+.spel-regels p {
+    display: none;
+}
+
+.spel-regels p.uitgeklapt {
+    display: block;
+    padding: 0.5em 0.5em;
+    color: #FFFFFF;
+}
+
+.spel-regels img.rotate180 {
+    rotate: 180deg;
+}
