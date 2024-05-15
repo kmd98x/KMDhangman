@@ -92,9 +92,9 @@ body {
 
 
 /* ================================================================================================================================================================================================================================================================== */
-.hangman{
+.hangman {
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2, 1fr);
     width: 56em;
     margin: auto;
     margin-top: 5em;
@@ -102,19 +102,23 @@ body {
 }
 
 
-.linkerKant{
+.linkerKant {
     height: 30em;
     position: relative;
 }
 
-.linkerKant img{
+.linkerKant img {
     position: absolute;
-    top:0;
-    /* opacity: 0; */
+    top: 0;
+    opacity: 0;
 }
 
+.linkerKant img.laatZien {
+    opacity: 1;
 
-.textarea{
+}
+
+.textarea {
     color: white;
     gap: 0.5em;
     font-size: 3em;
@@ -140,4 +144,8 @@ body {
     box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.275);
     padding: 1em;
 }
+
+
+
+
 
