@@ -45,25 +45,33 @@ for (let i=0; i < buttons.length; i++){
 
         //we gaan nu kleine letters maken, want de woorden/letters in de array zijn kleine letters en de keyboard grote, dus dan krijg je een false uitkomst
 
-        const kleinLetter = button.textContent.toLowerCase()
-        // console.log(kleinLetter)
+        const kleineLetter = button.textContent.toLowerCase()
+        console.log(kleineLetter)
 
-        //BRON INCLUDES :https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes?retiredLocale=nl
+        
+//button heeft niet de class geklikt, en in css gaan we designen zodat geklikt wel te zien is en je kunt er niet meer op klikken.
+        if (!button.classList.contains("geklikt")){
+            button.classList.add("geklikt")
 
-        if (gekozenwoord.includes(kleinLetter)) {
-             //de functie heeft voegDeLetterToe en heeft 2 parameters.
-            voegDeLetterToe (gekozenwoord, kleinLetter)
-            
-            // console.log(leine letter bestaat in gekozen woord)
+            //BRON INCLUDES :https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes?retiredLocale=nl
+
+            if (gekozenwoord.includes(kleineLetter)) {
+                //de functie heeft voegDeLetterToe en heeft 2 parameters.
+               voegDeLetterToe (gekozenwoord, kleineLetter)
+               
+               // console.log(leine letter bestaat in gekozen woord)
+           }
+           else {
+               //dit telt de levens af van de gebruiker als hij/zij op een verkeerde letter klikt.
+               levens--
+               //console.log(levens)
+   
+               voegDeAfbeeldingToe ()
+               //console.log("Kleine letter bestaat niet in gekozen woord")
+           }
+
         }
-        else {
-            //dit telt de levens af van de gebruiker als hij/zij op een verkeerde letter klikt.
-            levens--
-            //console.log(levens)
-
-            voegDeAfbeeldingToe ()
-            //console.log("Kleine letter bestaat niet in gekozen woord")
-        }
+        
     }
 
     //als je op een button (in dit geval een letter clickt, dan voert het de fucntie checkletters uit en daarin heb je ook nog de fucntie voegDeLetter toe die hij ook uitvoert.
@@ -71,18 +79,18 @@ for (let i=0; i < buttons.length; i++){
 }
 
 
-//In deze functie kijken we dus of de kleinletter in de gekozenwoord voorkomt.
+//In deze functie kijken we dus of de kleineLetter in de gekozenwoord voorkomt.
 
-function voegDeLetterToe (gekozenwoord, kleinLetter){
+function voegDeLetterToe (gekozenwoord, kleineLetter){
     //we pakken al die _ tekens van de p tag uit mn html.
     const letters = document.querySelectorAll(".textarea p")
     
-    //gekozenwoord is al gesplitst in regel 23. We gaan door het gekozenwoord en kijken vervolgens of het kleineletter in het gekozenwoord bestaat. Zo ja, dan plaatsen we de kleinletter op de juiste plek mbv letters[i]. De i zegt welke positie hij krijgt.
+    //gekozenwoord is al gesplitst in regel 23. We gaan door het gekozenwoord en kijken vervolgens of het kleineletter in het gekozenwoord bestaat. Zo ja, dan plaatsen we de kleineLetter op de juiste plek mbv letters[i]. De i zegt welke positie hij krijgt.
     gekozenwoord.forEach(function(letter, i) {
-        if(letter === kleinLetter){
-            // console.log(kleinLetter)
+        if(letter === kleineLetter){
+            // console.log(kleineLetter)
             //console.log(i)
-            letters[i].textContent = kleinLetter
+            letters[i].textContent = kleineLetter
             //console.log(letters[i])
         }
     }) 
@@ -91,11 +99,9 @@ function voegDeLetterToe (gekozenwoord, kleinLetter){
 function voegDeAfbeeldingToe (){
     const afbeeldingen = document.querySelectorAll(".linkerKant img")
 
-    //console.log(afbeeldingen)
-
     //levens is een global scope dus ik kan het hier meteen gebruiken. Dus ik hoef het niet als een parameter te gebruiken.
     afbeeldingen[levens].classList.add('laatZien')
-    console.log(afbeeldingen)
+    //console.log(afbeeldingen)
 }
 
 

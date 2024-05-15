@@ -145,7 +145,6 @@ body {
     padding: 1em;
 }
 
-
-
-
-
+.keyboard button.geklikt{
+    background-color: #16535D;
+}
