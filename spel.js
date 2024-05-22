@@ -12,8 +12,8 @@
 
 
 let levens = 10
-const woorden = ["hallo","vloer","droom","tafel"] 
-const buttons = document.querySelectorAll("button")
+const woorden = ["hallo", "vloer", "droom", "tafel"]
+const buttons = document.querySelectorAll(".keyboard button")
 
 //als je bv 1e woord wou kiezen, doe je let gekozenwoord = woorden[0].split(""). Maar nu heb ik 4 woorden in mijn array, dus om een random woord uit mijn array te kiezen, maak ik gebruik van math.floor(Math.random()) en hij mag niet een grotere nummer genereren dan de array, dus daarom * woorden.lenght
 
@@ -34,7 +34,7 @@ console.log(gekozenwoord)
 
 // ik heb een lijst van allemaal knoppen(de letters). We gaan door alle knoppen(letters) heen met de for loop
 
-for (let i=0; i < buttons.length; i++){
+for (let i = 0; i < buttons.length; i++) {
     let button = buttons[i]
 
     //Deze functie heeft 3 acties, nl: 1: hij prevent, dus het voorkomt dat de pagina wordt herladen. 2; de letters worden klein gemaakt. 3; het checkt of het gekozenwoord de letter bevat.
@@ -48,30 +48,30 @@ for (let i=0; i < buttons.length; i++){
         const kleineLetter = button.textContent.toLowerCase()
         console.log(kleineLetter)
 
-        
-//button heeft niet de class geklikt, en in css gaan we designen zodat geklikt wel te zien is en je kunt er niet meer op klikken.
-        if (!button.classList.contains("geklikt")){
+
+        //button heeft niet de class geklikt, en in css gaan we designen zodat geklikt wel te zien is en je kunt er niet meer op klikken.
+        if (!button.classList.contains("geklikt")) {
             button.classList.add("geklikt")
 
             //BRON INCLUDES :https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes?retiredLocale=nl
 
             if (gekozenwoord.includes(kleineLetter)) {
                 //de functie heeft voegDeLetterToe en heeft 2 parameters.
-               voegDeLetterToe (gekozenwoord, kleineLetter)
-               
-               // console.log(leine letter bestaat in gekozen woord)
-           }
-           else {
-               //dit telt de levens af van de gebruiker als hij/zij op een verkeerde letter klikt.
-               levens--
-               //console.log(levens)
-   
-               voegDeAfbeeldingToe ()
-               //console.log("Kleine letter bestaat niet in gekozen woord")
-           }
+                voegDeLetterToe(gekozenwoord, kleineLetter)
+
+                // console.log(leine letter bestaat in gekozen woord)
+            }
+            else {
+                //dit telt de levens af van de gebruiker als hij/zij op een verkeerde letter klikt.
+                levens--
+                //console.log(levens)
+
+                voegDeAfbeeldingToe()
+                //console.log("Kleine letter bestaat niet in gekozen woord")
+            }
 
         }
-        
+
     }
 
     //als je op een button (in dit geval een letter clickt, dan voert het de fucntie checkletters uit en daarin heb je ook nog de fucntie voegDeLetter toe die hij ook uitvoert.
@@ -81,22 +81,38 @@ for (let i=0; i < buttons.length; i++){
 
 //In deze functie kijken we dus of de kleineLetter in de gekozenwoord voorkomt.
 
-function voegDeLetterToe (gekozenwoord, kleineLetter){
+function voegDeLetterToe(gekozenwoord, kleineLetter) {
     //we pakken al die _ tekens van de p tag uit mn html.
     const letters = document.querySelectorAll(".textarea p")
-    
+    let gekozenLetters = []
+
     //gekozenwoord is al gesplitst in regel 23. We gaan door het gekozenwoord en kijken vervolgens of het kleineletter in het gekozenwoord bestaat. Zo ja, dan plaatsen we de kleineLetter op de juiste plek mbv letters[i]. De i zegt welke positie hij krijgt.
-    gekozenwoord.forEach(function(letter, i) {
-        if(letter === kleineLetter){
+    gekozenwoord.forEach(function (letter, i) {
+        if (letter === kleineLetter) {
             // console.log(kleineLetter)
             //console.log(i)
             letters[i].textContent = kleineLetter
             //console.log(letters[i])
         }
-    }) 
+    })
+
+    letters.forEach(function (letter) {
+        gekozenLetters.push(letter.textContent)
+
+    })
+
+    //console.log(gekozenLetters)
+
+    if (gekozenLetters.join("") === gekozenwoord.join("")) {
+        gewonnen()
+        //console.log("gewonnen")
+    }
+    //console.log(gekozenLetters.join(""))
+
 }
 
-function voegDeAfbeeldingToe (){
+
+function voegDeAfbeeldingToe() {
     const afbeeldingen = document.querySelectorAll(".linkerKant img")
 
     //levens is een global scope dus ik kan het hier meteen gebruiken. Dus ik hoef het niet als een parameter te gebruiken.
@@ -104,9 +120,40 @@ function voegDeAfbeeldingToe (){
     //console.log(afbeeldingen)
 }
 
+function gewonnen() {
+
+    const opnieuwSpelen = document.querySelector(".opnieuw")
+    opnieuwSpelen.addEventListener("click", nieuwespel)
+    const eindstand = document.querySelector(".eindstand")
+    eindstand.classList.remove("hidden")
+}
+
+
+function nieuwespel() {
+    //console.log("nieuwespel")
+
+    const eindstand = document.querySelector(".eindstand")
+    eindstand.classList.add("hidden")
+    levens=10
+    const afbeeldingen = document.querySelectorAll(".linkerKant img")
+    afbeeldingen.forEach(function(afbeelding){
+        afbeelding.classList.remove("laatZien")
+    
+    })
+
+    buttons.forEach(function(button){
+        button.classList.remove("geklikt")
+    })
+
+}
 
 
 
 
 
 
+
+
+// const naam = ()=> {
+
+// }

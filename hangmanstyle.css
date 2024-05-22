@@ -148,3 +148,38 @@ body {
 .keyboard button.geklikt{
     background-color: #16535D;
 }
+
+.eindstand{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.55);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.eindstand div{
+    background: #FFFFFF;
+    padding: 5em 10em;
+    border-radius: 0.6em;
+}
+
+.eindstand.hidden{
+    display: none;
+}
+
+.opnieuw{
+    background: #16535D;
+    padding: 1em 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2em;
+    color: #FFFFFF; 
+    border: none;
+    border-radius: 0.6em;
+}
