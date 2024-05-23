@@ -12,7 +12,10 @@
 
 
 let levens = 10
-const woorden = ["hallo", "vloer", "droom", "tafel"]
+const woorden = ["hallo", "vloer", "droom", "tafel", "appel", "stoel", "vogel", "boter", "druif",
+    "klein", "lente", "gelei", "harde", "aarde",
+    "liefs", "kaars", "fiets", "brood", "smaak",
+    "regen", "winst", "klank", "bloem", "schat"]
 const buttons = document.querySelectorAll(".keyboard button")
 
 //als je bv 1e woord wou kiezen, doe je let gekozenwoord = woorden[0].split(""). Maar nu heb ik 4 woorden in mijn array, dus om een random woord uit mijn array te kiezen, maak ik gebruik van math.floor(Math.random()) en hij mag niet een grotere nummer genereren dan de array, dus daarom * woorden.lenght
@@ -20,7 +23,10 @@ const buttons = document.querySelectorAll(".keyboard button")
 // BRON SPLIT: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split. 0 is de 1e woord van het woord en de split zorgt ervoor dat hallo gesplit wordt in gekozenwoord
 
 
+
 let gekozenwoord = woorden[Math.floor(Math.random() * woorden.length)].split("")
+
+
 
 console.log(gekozenwoord)
 
@@ -80,10 +86,10 @@ for (let i = 0; i < buttons.length; i++) {
 
 
 //In deze functie kijken we dus of de kleineLetter in de gekozenwoord voorkomt.
-
+const letters = document.querySelectorAll(".textarea p")
 function voegDeLetterToe(gekozenwoord, kleineLetter) {
     //we pakken al die _ tekens van de p tag uit mn html.
-    const letters = document.querySelectorAll(".textarea p")
+
     let gekozenLetters = []
 
     //gekozenwoord is al gesplitst in regel 23. We gaan door het gekozenwoord en kijken vervolgens of het kleineletter in het gekozenwoord bestaat. Zo ja, dan plaatsen we de kleineLetter op de juiste plek mbv letters[i]. De i zegt welke positie hij krijgt.
@@ -130,21 +136,37 @@ function gewonnen() {
 
 
 function nieuwespel() {
+
+
     //console.log("nieuwespel")
+
+    gekozenwoord = woorden[Math.floor(Math.random() * woorden.length)].split("")
+
+    console.log(gekozenwoord)
 
     const eindstand = document.querySelector(".eindstand")
     eindstand.classList.add("hidden")
-    levens=10
+    levens = 10
     const afbeeldingen = document.querySelectorAll(".linkerKant img")
-    afbeeldingen.forEach(function(afbeelding){
+    afbeeldingen.forEach(function (afbeelding) {
         afbeelding.classList.remove("laatZien")
-    
+
     })
 
-    buttons.forEach(function(button){
+    buttons.forEach(function (button) {
         button.classList.remove("geklikt")
     })
 
+
+    letters.forEach(function (letter) {
+        letter.textContent = "__"
+        console.log(letter)
+    })
+
+}
+
+function verloren(){
+    
 }
 
 
