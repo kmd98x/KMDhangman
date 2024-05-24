@@ -9,6 +9,18 @@
  *      deel van de afbeelding verschijnt
  */
 
+const spelRegels = document.querySelector (".spel-regels p") // dit pakt 'spel' uit mijn HTML 
+
+const spelRegelsPijltje = document.querySelector (".spel-regels img")
+
+const spelRegelsButton = document.querySelector (".spel-regels button")
+
+function klikopspelregels () {
+    spelRegelsPijltje.classList.toggle("rotate180")
+    spelRegels.classList.toggle("uitgeklapt")
+}
+
+spelRegelsButton.addEventListener("click", klikopspelregels)
 
 
 let levens = 10
@@ -72,6 +84,10 @@ for (let i = 0; i < buttons.length; i++) {
                 levens--
                 //console.log(levens)
 
+                if (levens<1) {
+                    geefResultaat("Helaas","U heeft verloren")
+                }
+
                 voegDeAfbeeldingToe()
                 //console.log("Kleine letter bestaat niet in gekozen woord")
             }
@@ -110,7 +126,7 @@ function voegDeLetterToe(gekozenwoord, kleineLetter) {
     //console.log(gekozenLetters)
 
     if (gekozenLetters.join("") === gekozenwoord.join("")) {
-        gewonnen()
+        geefResultaat("Hoera","U heeft gewonnen")
         //console.log("gewonnen")
     }
     //console.log(gekozenLetters.join(""))
@@ -126,13 +142,13 @@ function voegDeAfbeeldingToe() {
     //console.log(afbeeldingen)
 }
 
-function gewonnen() {
+// function gewonnen() {
 
-    const opnieuwSpelen = document.querySelector(".opnieuw")
-    opnieuwSpelen.addEventListener("click", nieuwespel)
-    const eindstand = document.querySelector(".eindstand")
-    eindstand.classList.remove("hidden")
-}
+//     const opnieuwSpelen = document.querySelector(".opnieuw")
+//     opnieuwSpelen.addEventListener("click", nieuwespel)
+//     const eindstand = document.querySelector(".eindstand")
+//     eindstand.classList.remove("hidden")
+// }
 
 
 function nieuwespel() {
@@ -165,17 +181,17 @@ function nieuwespel() {
 
 }
 
-function verloren(){
+function geefResultaat(titel,tekst){
     
+    const opnieuwSpelen = document.querySelector(".opnieuw")
+    opnieuwSpelen.addEventListener("click", nieuwespel)
+    const eindstand = document.querySelector(".eindstand")
+    eindstand.classList.remove("hidden")
+    const eindstandH= document.querySelector(".eindstand h3").textContent=titel
+    const eindstandP= document.querySelector(".eindstand p").textContent=tekst
 }
 
 
-
-
-
-
-
-
-// const naam = ()=> {
-
-// }
+function weergeefLevens(){
+    
+}
