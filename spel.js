@@ -82,6 +82,7 @@ for (let i = 0; i < buttons.length; i++) {
             else {
                 //dit telt de levens af van de gebruiker als hij/zij op een verkeerde letter klikt.
                 levens--
+                weergeefLevens()
                 //console.log(levens)
 
                 if (levens<1) {
@@ -163,6 +164,7 @@ function nieuwespel() {
     const eindstand = document.querySelector(".eindstand")
     eindstand.classList.add("hidden")
     levens = 10
+    weergeefLevens()
     const afbeeldingen = document.querySelectorAll(".linkerKant img")
     afbeeldingen.forEach(function (afbeelding) {
         afbeelding.classList.remove("laatZien")
@@ -193,5 +195,6 @@ function geefResultaat(titel,tekst){
 
 
 function weergeefLevens(){
-    
+    const aantalKansen = document.querySelector (".aantalKansen").textContent= "Probeer het nog "+ levens+ " keer"
 }
+
